@@ -1,0 +1,53 @@
+{
+  "name": "Sound-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'src/**/*spec.js'",
+    "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
+    "test:watch": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5",
+    "jsdom": "^9.5.0",
+    "mocha": "^3.0.2",
+    "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-hot-loader": "^3.0.0-beta.3",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  },
+  "dependencies": {
+    "install": "^0.8.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.0",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "soundcloud": "^3.1.2",
+    "whatwg-fetch": "^1.0.0"
+  }
+}

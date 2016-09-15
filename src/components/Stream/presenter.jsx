@@ -1,13 +1,17 @@
+// @flow
+
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { CLIENT_ID } from '../../constants/auth';
 
 class Stream extends Component {
-  propTypes: {
-    activeTrack: PropTypes.array.isRequired,
-    user: PropTypes.object.isRequired,
-  }
-
+  props: {
+    user: User,
+    tracks: Array<Track>,
+    activeTrack: ?Track,
+    onAuth: () => void,
+    onPlay: (someTrack: Track) => void
+  };
   componentDidUpdate() {
     const audioElement = ReactDOM.findDOMNode(this.refs.audio);
 
@@ -46,11 +50,7 @@ class Stream extends Component {
               return (
                 <div className="track" key={key}>
                   {track.origin.title}
-                  <button type="button"
-                    onClick={() => onPlay(track)}
-                  >
-                          Play
-                  </button>
+                  <button type="button" onClick={() => onPlay(track)}> Play </button>
                 </div>
               );
             })

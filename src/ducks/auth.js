@@ -28,3 +28,45 @@ function doFetchMe() {
         });
   };
 }
+
+function doFetchStream(session) {
+  return function (dispatch) {
+    fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+      .then(response => response.json())
+      .then((data) => {
+        dispatch(doSetTracks(data.collection));
+      });
+  };
+}
+
+const initialState = {};
+
+function applySetMe(state, action) {
+  const { user } = action;
+  return { ...state, user };
+}
+
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case ME_SET:
+      return applySetMe(state, action);
+    default:
+      // do Nothing
+  }
+  return state;
+}
+
+const actionCreators = {
+  doAuth,
+};
+
+const actionTypes = {
+  ME_SET,
+};
+
+export {
+  actionCreators,
+  actionTypes,
+};
+
+export default reducer;

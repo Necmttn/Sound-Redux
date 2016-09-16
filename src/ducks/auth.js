@@ -50,8 +50,6 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case ME_SET:
       return applySetMe(state, action);
-    default:
-      // do Nothing
   }
   return state;
 }
@@ -64,9 +62,8 @@ const actionTypes = {
   ME_SET,
 };
 
-export {
+export default {
   actionCreators,
   actionTypes,
+  reducer,
 };
-
-export default reducer;
